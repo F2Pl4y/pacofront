@@ -64,6 +64,11 @@ function validarOperaciones(idCargo) {
             '<a href="platillos.html">' +
             '<i class="fa fa-utensils"></i>Platillos' +
             '</a>' +
+            '</li>' +
+            '<li>' +
+            '<a href="categorias.html">' +
+            '<i class="fa fa-utensils"></i>Categorias' +
+            '</a>' +
             '</li>';
         // '<li>' +
         // '<a href="cuentasadmin.html">' +
