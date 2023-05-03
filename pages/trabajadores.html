@@ -53,7 +53,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title w-100 text-center">
-                        REGISTRAR TRABAJADOR
+                        modal editar trabajadores
                     </h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -63,7 +63,7 @@
                 <div class="modal-body">
                     <form action="#" class="formulario" method="POST" enctype="multipart/form-data" id="formulario">
                         <input type="hidden" name="accionTrab" id="accionTrab">
-                        <input type="hidden" name="txtidEmpleado" id="txtidEmpleado">
+                        <input type="text" name="txtidEmpleado" id="txtidEmpleado">
                         <div class="form-group col-5">
                             <label for="email">Nombre:</label>
                             <input type="text" class="form-control" name="txtnombreEmpleado"
@@ -131,8 +131,8 @@
                                 <table class="table table-bordered" style="text-align: center;">
                                     <thead>
                                         <tr>
-                                            <th>CARGO</th>
-                                            <th>ACCIONES</th>
+                                            <th>CARGO modal</th>
+                                            <th>ACCIONES modal</th>
                                         </tr>
                                     </thead>
                                     <!-- Segundo paso -->
@@ -190,7 +190,7 @@
                 </div>
                 <div class="modal-body" id="modal-body">
                     <form action="#" class="formulario3" method="POST" enctype="multipart/form-data" id="formulario3">
-                        <input type="hidden" name="txtidCargoModal2x" id="txtidCargoModal2x">
+                        <input type="text" name="txtidCargoModal2x" id="txtidCargoModal2x">
                         <div class="form-group">
                             <label for="email">NOMBRE</label>
                             <input type="text" class="form-control" name="txtnombreCargo2" id="txtnombreCargo2">
@@ -212,12 +212,12 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" style="display: inline;">
-                    <h3 class="modal-title" style="text-align: center;">Ingrese la contraseña de este empleado</h3>
+                    <h3 class="modal-title" style="text-align: center;">modal de la info upd</h3>
                 </div>
                 <div class="modal-body" id="modal-body">
                     <form action="#" style="display: flex; flex-direction: column; align-items: center" method="POST"
                         id="formularioCorroborarPassword">
-                        <input type="hidden" name="idEmpleado" id="idEmpleado">
+                        <input type="text" name="idEmpleado" id="idEmpleado">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Password</span>
@@ -284,7 +284,7 @@
             </a>&nbsp;
             <!-- Primer paso -->
             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1X">
-                CARGOS&nbsp;&nbsp;<i class="gg-list" style="display: inline-block;top: 3px;"></i></a>
+                CARGOSEMPLEADOS&nbsp;&nbsp;<i class="gg-list" style="display: inline-block;top: 3px;"></i></a>
         </div>
         <div class="tabla table-responsive">
             <table class="table table-bordered table-hover">
@@ -313,9 +313,9 @@
                 </div>
                 <div class="modal-body">
                     <form action="#" class="formulario2" method="POST" enctype="multipart/form-data" id="formulario2">
-                        <input type="hidden" name="txtidEmpleado" id="txtidEmpleado">
+                        <input type="text" name="txtidEmpleado" id="txtidEmpleado">
                         <div class="form-group col-5">
-                            <label for="email">Nombre del empleado:</label>
+                            <label for="email">Nombre del empleado noseeeee:</label>
                             <input type="text" class="form-control" name="txtnombreEmpleado"
                                 placeholder="Ingrese su nombre" id="txtnombreEmpleado" data-toggle="tooltip"
                                 title="su nombre debe ser igual o mayor a 3 dígitos" data-placement="bottom"

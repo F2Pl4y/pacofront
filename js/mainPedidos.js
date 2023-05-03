@@ -1,43 +1,46 @@
 // const domMainPedidos = "https://f3rn4nd021py.pythonanywhere.com/";
 const domMainPedidos = "http://127.0.0.1:5000/";
 
-window.addEventListener('load',(e)=>{
+window.addEventListener('load', (e) => {
+    console.log("ingreso a pedidos select");
     pedidosSelect();
+    console.log("ingreso a pedidos select");
 });
 
 
-function pedidosSelect(){
+function pedidosSelect() {
     const id = sessionStorage.getItem("idEmpleado");
     $.ajax({
         type: "GET",
-        url: `${domMainPedidos}pedido/selectEmp/${id}/`,
+        // url: `${domMainPedidos}pedido/selectEmp/${id}/`,
+        url: `${domMainPedidos}pedido/selectEmp/`,
         dataType: "json",
         success: function (data) {
             let contenido = ``;
             $.each(data["resultado"], function (llave, valor) {
                 contenido += `<tr>`;
-                    contenido += `<td>${valor["idPedido"]}</td>`;
-                    contenido += `<td>${valor["nombreCliente"]}</td>`;
-                    contenido += `<td>${valor["costoTotal"]}</td>`;
-                    contenido += `<td class="grupoBotones">`;
-                        contenido += `<div class="btn-group">`;
-                            contenido += `<button class="btn btn-warning" data-toggle="modal" data-target="#detallePedido" onclick="detalleSelect(${valor["idPedido"]})">`;
-                                contenido += `<a href="#">Detalle</a>`;
-                            contenido += `</button>`;
-                                if(valor["estado"]==="0"){
-                                    contenido += `<button class="btn btn-primary" onclick="pagarPedido(${valor["idPedido"]})">`;
-                                        contenido += `<a href="#">En proceso</a>`;
-                                    contenido += `</button>`;
-                                    contenido += `<button class="btn btn-danger" onclick="cancelarPedido(${valor["idPedido"]})">`;
-                                        contenido += `<a href="#">Cancelar</a>`;
-                                    contenido += `</button>`;
-                                }else{
-                                    contenido += `<button class="btn btn-success">`;
-                                        contenido += `<a href="#">Pagado</a>`;
-                                    contenido += `</button>`;
-                                }
-                        contenido += `</div>`;
-                    contenido += `</td>`;
+                contenido += `<td>${valor["idPedido"]}</td>`;
+                contenido += `<td>${valor["nombreCliente"]}</td>`;
+                contenido += `<td>${valor["costoTotal"]}</td>`;
+                contenido += `<td class="grupoBotones">`;
+                contenido += `<div class="btn-group">`;
+                contenido += `<button class="btn btn-warning" data-toggle="modal" data-target="#detallePedido" onclick="detalleSelect(${valor["idPedido"]})">`;
+                contenido += `<a href="#">Detalle</a>`;
+                contenido += `</button>`;
+                if (valor["estado"] === "0") {
+                    contenido += `<button class="btn btn-primary" onclick="pagarPedido(${valor["idPedido"]})">`;
+                    contenido += `<a href="#">En proceso</a>`;
+                    contenido += `</button>`;
+                    contenido += `<button class="btn btn-danger" onclick="cancelarPedido(${valor["idPedido"]})">`;
+                    contenido += `<a href="#">Cancelar</a>`;
+                    contenido += `</button>`;
+                } else {
+                    contenido += `<button class="btn btn-success">`;
+                    contenido += `<a href="#">Pagado</a>`;
+                    contenido += `</button>`;
+                }
+                contenido += `</div>`;
+                contenido += `</td>`;
                 contenido += `</tr>`;
             });
             $('#contenidoPedidos').html(contenido);
@@ -45,7 +48,7 @@ function pedidosSelect(){
     });
 }
 
-function pagarPedido(idPedido){
+function pagarPedido(idPedido) {
     $.ajax({
         type: "PUT",
         url: domMainPedidos + "pedido/update/" + idPedido + "/",
@@ -59,7 +62,7 @@ function pagarPedido(idPedido){
     });
 }
 
-function cancelarPedido(idPedido){
+function cancelarPedido(idPedido) {
     $.ajax({
         type: "DELETE",
         url: `${domMainPedidos}pedido/delete/${idPedido}/`,

@@ -50,14 +50,19 @@ function validarOperaciones(idCargo) {
             // '<i class="fa fa-check-square-o"></i>Dashboard' +
             // '</a>' +
             '</li>' +
+            // '<li>' +
+            // '<a href="registroVenta.html">' +
+            // '<i class="fa fa-user-tie"></i>Ventas' +
+            // '</a>' +
+            // '</li>' +
+            // '<li>' +
+            // '<a href="trabajadores.html">' +
+            // '<i class="fa fa-user-tie"></i>Trabajadores' +
+            // '</a>' +
+            // '</li>' +
             '<li>' +
-            '<a href="registroVenta.html">' +
-            '<i class="fa fa-user-tie"></i>Ventas' +
-            '</a>' +
-            '</li>' +
-            '<li>' +
-            '<a href="trabajadores.html">' +
-            '<i class="fa fa-user-tie"></i>Trabajadores' +
+            '<a href="pedidos.html">' +
+            '<i class="fa fa-utensils"></i>Pedidos' +
             '</a>' +
             '</li>' +
             '<li>' +

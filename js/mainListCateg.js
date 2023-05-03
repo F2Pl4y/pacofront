@@ -4,94 +4,118 @@ window.addEventListener('load', (e) => {
     const url = window.location.pathname;
     empSelect();
     if (url === "/index.html" || url === "/") {
-
+        console.log("dentro del if cargar");
+        console.log("la url del inicio es: " + url);
     } else {
-        const AgregarEmpleadoBtn = document.getElementById('AgregarEmpleadoBtn');
+        console.log("entre al else de la linea 9");
+        const AgregarEmpleadoBtn = document.getElementById('AgregarListCatbtn');
         AgregarEmpleadoBtn.addEventListener('click', (e) => {
             $('#accionTrab').val('INSERT');
-            vaciarFormulario();
+            // vaciarFormulario();
         });
 
         // insertarAdmiEmp();
         // modalCorroborarPassword();
         const boton1 = document.getElementById('btnEnviarE');
+        const boton10 = document.getElementById('btnEnviarI');
+        boton10.addEventListener('click', (e) => {
+            if (url === "/pages/categorias.html" || url === "/pages/categorias.html") {
+                console.log("deberia actualizar");
+                empleadoUpdate();
+                // empInsert();
+            }
+        });
+        const boton11 = document.getElementById('btnEnviarINUEVO');
+        boton11.addEventListener('click', (e) => {
+            if (url === "/pages/categorias.html" || url === "/pages/categorias.html") {
+                console.log("ESTOY EN btn Enviar INUEVO");
+                // empleadoUpdate();
+                empInsert();
+            }
+        });
         // boton1.addEventListener('click', (e) => {
         //     if (url === "/pages/trabajadores.html" || url === "/pages/cuentasadmin.html") {
         //         empleadoUpdate();
         //     }
         // });
-        switch (url) {
-            case "/pages/cuentasadmin.html": AdminSelect(); break;
-            case "/pages/trabajadores.html": empSelect(); break;
-        }
+        // switch (url) {
+        //     case "/pages/cuentasadmin.html": AdminSelect(); break;
+        //     case "/pages/trabajadores.html": empSelect(); break;
+        // }
     }
 });
 
-function vaciarFormulario() {
-    $('#txtidEmpleado').val("");
-    $('#txtnombreEmpleado').val("");
-    $('#txtpasswordEmpleado').val("");
-    $('#txtcorreoEmpleado').val("");
-    $('#contenidoCargosList3').val("");
-}
+// function vaciarFormulario() {
+//     $('#txtid Empleado').val("");
+//     $('#txt nombreEmpleado').val("");
+//     $('#txtpasswordEmpleado').val("");
+//     $('#txtcorreoEmpleado').val("");
+//     $('#contenidoCargosList3').val("");
+// }
 
 
 function modalCorroborarPassword(id) {
     $('#mensajeError').html("");
-    $('#txtPasswordC').val("");
-    $('#idEmpleado').val(id);
-    const btnConfirmarPassword = document.getElementById('btnConfirmarPassword');
-    btnConfirmarPassword.addEventListener('click', (e) => {
-        const valores = new FormData();
-        valores.append("id", $('#idEmpleado').val());
-        valores.append("password", $('#txtPasswordC').val());
-        $.ajax({
-            type: "POST",
-            url: domMainEmpleados + "empleados/corroborar/",
-            data: valores,
-            dataType: 'json',
-            contentType: false,
-            enctype: 'multipart/form-data',
-            processData: false,
-            success: function (data) {
-                if (data["exito"] === false) {
-                    $('#mensajeError').html(data["resultado"]);
-                } else {
-                    vaciarFormulario();
-                    $('#accionTrab').val('UPDATE');
-                    $('#modalCorroborarPassword').modal('hide');
-                    $('#crearTrabajadores').modal('show');
-                    $('#txtidEmpleado').val(data["resultado"]["idEmpleado"]);
-                    $('#txtnombreEmpleado').val(data["resultado"]["nombreEmpleado"]);
-                    $('#txtcorreoEmpleado').val(data["resultado"]["correoEmpleado"]);
-                    $('#contenidoCargosList3').val(data["resultado"]["idCargo"]);
-                    $('#tituloModal').html("Datos del empleado<br>''" + data["resultado"]["nombreEmpleado"] + "''");
-                }
-            }
-        });
-    })
+    // $('#txtPasswordC').val("");
+    $('#idCategoria').val(id);
+    // const btnConfirmarPassword = document.getElementById('btnConfirmarPassword');
+    // btnConfirmarPassword.addEventListener('click', (e) => {
+    const valores = new FormData();
+    valores.append("id", $('#idCategoria').val());
+    // valores.append("password", $('#txtPasswordC').val());
+    $.ajax({
+        type: "POST",
+        url: domMainListCateg + "categorias/corroborar/",
+        data: valores,
+        dataType: 'json',
+        contentType: false,
+        enctype: 'multipart/form-data',
+        processData: false,
+        success: function (data) {
+            // if (data["exito"] === false) {
+            //     $('#mensajeError').html(data["resultado"]);
+            // } else {
+            // vaciarFormulario();
+            $('#accionTrab').val('UPDATE');
+            $('#modalCorroborarPassword').modal('hide');
+            $('#crearTrabajadores').modal('show');
+            // $('#txtid Empleado').val(data["resultado"]["id Empleado"]);
+            $('#txtNombreCategoria').val(data["resultado"]["nombreCategoria"]);
+            // $('#txt nombreEmpleado').val(data["resultado"]["nombreEmpleado"]);
+            // $('#txtcorreoEmpleado').val(data["resultado"]["correoEmpleado"]);
+            // $('#contenidoCargosList3').val(data["resultado"]["idCargo"]);
+            // $('#tituloModal').html("Datos del empleado<br>''" + data["resultado"]["nombreEmpleado"] + "''");
+            // }
+            console.log("el valor es: " + data["resultado"]["nombreCategoria"]);
+        }
+    });
+    // })
 };
 
-// function insertarAdmiEmp() {
-//     const url = window.location.pathname;
-//     const boton2 = document.getElementById('btnEnviarI');
-//     boton2.addEventListener('click', (e) => {
-//         if (url === "/pages/cuentasadmin.html" || url === "/pages/cuentasadmin") {
-//             if ($('#accionTrab').val() === 'UPDATE') {
-//                 empleadoUpdate();
-//             } else {
-//                 AdminInsert();
-//             }
-//         }
-//         if (url === "/pages/trabajadores.html" || url === "/pages/trabajadores") {
-//             if ($('#accionTrab').val() === 'UPDATE') {
-//                 empleadoUpdate();
-//             } else {
-//                 empInsert();
-//             }
-//         }
-//     });
-// }
+function insertarAdmiEmp() {
+    const url = window.location.pathname;
+    const boton2 = document.getElementById('btnEnviarLC');
+    console.log("entre a insertAdminEmp");
+    boton2.addEventListener('click', (e) => {
+        if (url === "/pages/categorias.html" || url === "/pages/categorias") {
+            // if ($('#accionTrab').val() === 'UPDATE') {
+            //     console.log("dentro del sub if de la pagina");
+            //     // empleadoUpdate();
+            //     AdminInsert();
+            // } else {
+            //     console.log("dentro del sub else de la pagina");
+            // }
+            // AdminInsert();
+        }
+        if (url === "/pages/trabajadores.html" || url === "/pages/trabajadores") {
+            if ($('#accionTrab').val() === 'UPDATE') {
+                empleadoUpdate();
+            } else {
+                empInsert();
+            }
+        }
+    });
+}
 
 function empSelect() {
     console.log("INICIOOOO");
@@ -109,11 +133,12 @@ function empSelect() {
                 template += '<td class="grupoBotones">';
                 template += '<div class="btn-group">';
                 template += '<button class="btn">';
-                // template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2" onclick=empGet(' + valor["idEmpleado"] + ')><i class="gg-info"></i></a>';
-                template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalCorroborarPassword" onclick="modalCorroborarPassword(' + valor["idEmpleado"] + ')"><i class="gg-info"></i></a>';
+                // template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2" onclick=empGet(' + valor["id Empleado"] + ')><i class="gg-info"></i></a>';
+                // template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalCorroborar Password" onclick="modalCorro borarPassword23(' + valor["idCategoria"] + ')"><i class="gg-info"></i></a>';
+                template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#crearTrabajadores" onclick="modalCorroborarPassword(' + valor["idCategoria"] + ')"><i class="gg-info"></i></a>';
                 template += '</button>';
                 template += '<button class="btn">';
-                template += '<a href="#" class="btn btn-danger" onclick="return empEliminar(' + valor["idEmpleado"] + ')"><i class="gg-trash"></i></a>';
+                template += '<a href="#" class="btn btn-danger" onclick="return empEliminar(' + valor["idCategoria"] + ')"><i class="gg-unavailable"></i></a>';
                 template += '</button>';
                 template += '</div>';
                 template += '</td>';
@@ -125,50 +150,18 @@ function empSelect() {
     });
 }
 
-function AdminSelect() {
-    $.ajax({
-        type: "GET",
-        url: domMainEmpleados + "admins/select/",
-        dataType: "json",
-        success: function (data) {
-            var tabla = '';
-            $.each(data["resultado"], function (llave, valor) {
-                var template = '<tr>';
-                template += '<td>' + valor["idEmpleado"] + '</td>';
-                template += '<td>' + valor["nombreEmpleado"] + '</td>';
-                template += '<td>' + valor["correoEmpleado"] + '</td>';
-                template += '<td class="grupoBotones">';
-                template += '<div class="btn-group">';
-                template += '<button class="btn">';
-                template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalCorroborarPassword" onclick="modalCorroborarPassword(' + valor["idEmpleado"] + ')"><i class="gg-info"></i></a>';
-                template += '</button>';
-                if (valor["idEmpleado"] !== 1) {
-                    template += '<button class="btn">';
-                    template += '<a href="#" class="btn btn-danger" onclick="return empEliminar(' + valor["idEmpleado"] + ')"><i class="gg-trash"></i></a>';
-                    template += '</button>';
-                }
-                template += '</div>';
-                template += '</td>';
-                template += '</tr>';
-                tabla += template;
-
-            });
-            $('#contenido2').html(tabla);
-        }
-    });
-}
-
 function empEliminar(id) {
     const url = window.location.pathname;
     $.ajax({
         type: "PUT",
-        url: domMainEmpleados + "empleados/delete/" + id + "/",
+        url: domMainListCateg + "categorias/disable/" + id + "/",
         dataType: "json",
         success: function (data) {
-            if (url === "/pages/cuentasadmin.html" || url === "/pages/cuentasadmin") {
-                AdminSelect();
+            console.log("supuestamente se deshabilito");
+            if (url === "/pages/categorias.html" || url === "/pages/categorias") {
+                // AdminSelect();
             }
-            if (url === "/pages/trabajadores.html") {
+            if (url === "/pages/categorias.html") {
                 if ($('#myModal3X').is(':visible') == true) {
                     ocultar4();
                 }
@@ -180,15 +173,15 @@ function empEliminar(id) {
 }
 
 function empInsert() {
-    var registrosEmpl = new FormData();
-    registrosEmpl.append("txtnombreEmpleado2", $('#txtnombreEmpleado').val());
-    registrosEmpl.append("txtcorreoEmpleado2", $('#txtcorreoEmpleado').val());
-    registrosEmpl.append("txtpasswordEmpleado2", $('#txtpasswordEmpleado').val());
-    registrosEmpl.append("txtidCargo2", $('#contenidoCargosList2').val());
+    var registrosEmplInsert = new FormData();
+    registrosEmplInsert.append("txtnombreCategoriaInsert", $('#txtNombreCategoriaInsert').val());
+    // registrosEmpl.append("txtcorreoEmpleado2", $('#txtcorreoEmpleado').val());
+    // registrosEmpl.append("txtpasswordEmpleado2", $('#txtpasswordEmpleado').val());
+    // registrosEmpl.append("txtidCargo2", $('#contenidoCargosList2').val());
     $.ajax({
         type: "POST",
-        url: domMainEmpleados + "empleados/create/",
-        data: registrosEmpl,
+        url: domMainListCateg + "categorias/create/",
+        data: registrosEmplInsert,
         dataType: 'json',
         contentType: false,
         enctype: 'multipart/form-data',
@@ -199,37 +192,17 @@ function empInsert() {
     });
 }
 
-function AdminInsert() {
-    var registrosEmpl = new FormData();
-    registrosEmpl.append("txtnombreEmpleado2", $('#txtnombreEmpleado').val());
-    registrosEmpl.append("txtcorreoEmpleado2", $('#txtcorreoEmpleado').val());
-    registrosEmpl.append("txtpasswordEmpleado2", $('#txtpasswordEmpleado').val());
-    registrosEmpl.append("txtidCargo2", $('#contenidoCargosList2').val());
-    $.ajax({
-        type: "POST",
-        url: domMainEmpleados + "empleados/create/1/",
-        data: registrosEmpl,
-        dataType: 'json',
-        contentType: false,
-        enctype: 'multipart/form-data',
-        processData: false,
-        success: function (data) {
-            AdminSelect();
-        }
-    });
-}
-
 function empleadoUpdate() {
     const url = window.location.pathname;
     var registrosEmpl = new FormData();
-    registrosEmpl.append("txtidEmpleado", $('#txtidEmpleado').val());
-    registrosEmpl.append("txtnombreEmpleado", $('#txtnombreEmpleado').val());
-    registrosEmpl.append("txtcorreoEmpleado", $('#txtcorreoEmpleado').val());
-    registrosEmpl.append("txtpasswordEmpleado", $('#txtpasswordEmpleado').val());
-    registrosEmpl.append("txtidCargo", $('#contenidoCargosList2').val());
+    registrosEmpl.append("idCategoria", $('#idCategoria').val());
+    registrosEmpl.append("txtnombreCategoria", $('#txtNombreCategoria').val());
+    // registrosEmpl.append("txtnombreCategoria", $('#txtnombreCategoria').val());
+    console.log("EL ID ES:" + registrosEmpl.get("idCategoria"));
+    console.log("EL nombre ES:" + registrosEmpl.get("txtnombreCategoria"));
     $.ajax({
         type: "PUT",
-        url: domMainEmpleados + "empleados/update/" + registrosEmpl.get("txtidEmpleado") + "/",
+        url: domMainListCateg + "categorias/update/" + registrosEmpl.get("idCategoria") + "/",
         data: registrosEmpl,
         dataType: 'json',
         contentType: false,
@@ -237,10 +210,14 @@ function empleadoUpdate() {
         processData: false,
         success: function (data) {
             console.log(data);
-            if (url === "/pages/cuentasadmin.html" || url === "/pages/cuentasadmin") {
-                AdminSelect();
+            console.log("SE deberia actualizar");
+            if (url === "/pages/categorias.html" || url === "/pages/categorias") {
+                // AdminSelect();
+                console.log("entro al primer if de update");
+                empSelect();
             }
-            if (url === "/pages/trabajadores.html") {
+            if (url === "/pages/categorias.html") {
+                console.log("entro al segundo if de update");
                 empSelect();
             }
         }

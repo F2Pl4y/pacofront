@@ -48,12 +48,45 @@
     </div>
     <!--Fin Perfil usuario-->
 
-    <div class="modal fade modalCrear" id="crearTrabajadores">
+    <!-- <div class="modal fade modalCrear" id="crearTrabajadores">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title w-100 text-center">
-                        REGISTRAR TRABAJADOR
+                        modal: creatrabajadores
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
+
+                <!-- Modal body -->
+                <!-- el problema esta aqui, quitarlo o modificarlo bien -->
+                <!-- <div class="modal-body">
+                    <form action="#" class="formulario" method="POST" enctype="multipart/form-data" id="formulario"> -->
+                        <!-- <input type="hidden" name="accionTrab" id="accionTrab" value="UPDATE"> -->
+                        <!-- <input type="text" name="txtidEmpleado" id="txtidEmpleado">
+                        <div class="form-group col-5">
+                            <label for="email">Nombre categ:</label>
+                            <input type="text" class="form-control" name="txtCatList"
+                                placeholder="Nombre de la categoria" id="txtCatList" data-toggle="tooltip"
+                                title="Su nombre debe ser igual o mayor a 3 dígitos" data-placement="right"
+                                onkeypress="return SoloLetras(event);">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" id="btnEnviarLC" class="btn btn-success" class="close"
+                                data-dismiss="modal">modal creatrabajadores&nbsp;&nbsp;<i class="gg-user-add"
+                                    style="display: inline-block;"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="modal fade modalCrear" id="crearTrabajadoresNuevo">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100 text-center">
+                        Crear categoria
                     </h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -63,42 +96,50 @@
                 <div class="modal-body">
                     <form action="#" class="formulario" method="POST" enctype="multipart/form-data" id="formulario">
                         <input type="hidden" name="accionTrab" id="accionTrab">
-                        <input type="hidden" name="txtidEmpleado" id="txtidEmpleado">
+                        <input type="hidden" name="idCategoria123" id="idCategoria123">
                         <div class="form-group col-5">
-                            <label for="email">Nombre:</label>
-                            <input type="text" class="form-control" name="txtnombreEmpleado"
-                                placeholder="Ingrese su nombre" id="txtnombreEmpleado" data-toggle="tooltip"
+                            <label >Nombre categoria modal nuevo:</label>
+                            <input type="text" class="form-control" name="txtNombreCategoriaInsert"
+                                placeholder="Ingrese su nombre" id="txtNombreCategoriaInsert" data-toggle="tooltip"
                                 title="Su nombre debe ser igual o mayor a 3 dígitos" data-placement="right"
                                 onkeypress="return SoloLetras(event);">
                         </div>
-                        <div class="form-group col-5">
-                            <label for="pwd">Correo:</label>
-                            <input type="text" class="form-control" name="txtcorreoEmpleado"
-                                placeholder="example@gmail.com" id="txtcorreoEmpleado">
+                        <div class="form-group">
+                            <button type="submit" id="btnEnviarINUEVO" class="btn btn-success" class="close"
+                                data-dismiss="modal">Modificar categoria Nuevo&nbsp;&nbsp;<i class="gg-user-add"
+                                    style="display: inline-block;"></i></button>
                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modalCrear" id="crearTrabajadores">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100 text-center">
+                        Editar categorias
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <!-- el problema esta aqui, quitarlo o modificarlo bien -->
+                <div class="modal-body">
+                    <form action="#" class="formulario" method="POST" enctype="multipart/form-data" id="formulario">
+                        <input type="hidden" name="accionTrab" id="accionTrab">
+                        <input type="hidden" name="idCategoria" id="idCategoria">
                         <div class="form-group col-5">
-                            <label for="email2">Contraseña:</label>
-                            <div class="input-group" id="show_hide_password">
-                                <input class="form-control" type="password" name="txtpasswordEmpleado"
-                                    placeholder="∗∗∗∗∗∗∗∗∗∗" id="txtpasswordEmpleado" data-toggle="tooltip"
-                                    title="min: 3" data-placement="right">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="show_password" type="button"
-                                        onclick="mostrarPassword()">
-                                        <i class="fa fa-eye-slash icon"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-5">
-                            <label for="pwd4">Cargo:</label>
-                            <select id="contenidoCargosList2" class="form-control" name="txtidCargo2"
-                                style="text-align: center;">
-                            </select>
+                            <label >Nombre categoria modal nuevo:</label>
+                            <input type="text" class="form-control" name="txtNombreCategoria"
+                                placeholder="Ingrese su nombre" id="txtNombreCategoria" data-toggle="tooltip"
+                                title="Su nombre debe ser igual o mayor a 3 dígitos" data-placement="right"
+                                onkeypress="return SoloLetras(event);">
                         </div>
                         <div class="form-group">
                             <button type="submit" id="btnEnviarI" class="btn btn-success" class="close"
-                                data-dismiss="modal">AÑADIR TRABAJADOR&nbsp;&nbsp;<i class="gg-user-add"
+                                data-dismiss="modal">Modificar categoria Creada&nbsp;&nbsp;<i class="gg-user-add"
                                     style="display: inline-block;"></i></button>
                         </div>
                     </form>
@@ -212,20 +253,26 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header" style="display: inline;">
-                    <h3 class="modal-title" style="text-align: center;">Editar categoría</h3>
+                    <h3 class="modal-title" style="text-align: center;">Editar categoría modal</h3>
                 </div>
                 <div class="modal-body" id="modal-body">
                     <form action="#" style="display: flex; flex-direction: column; align-items: center" method="POST"
-                        id="formularioCorroborarPassword">
-                        <input type="hidden" name="idEmpleado" id="idEmpleado">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Password</span>
-                            </div>
-                            <input type="password" class="form-control" id="txtPasswordC"
-                                placeholder="Ingrese contraseña">
+                        id="formularioCorroborarPasswordCateg">
+                        <!-- con esto saco el ID -->
+                        <input type="text" name="idCategoria2" id="idCategoria2">
+                        <div class="form-group col-5">
+                            <!-- <input type="text" name="accionTrab" id="accionTrab"> -->
+                            <label for="email">Nombremodal categlist:</label>
+                            <input type="text" class="form-control" name="txtnombreEmpleado"
+                                placeholder="Ingrese su nombre" id="txtnombreEmpleado" data-toggle="tooltip"
+                                title="Su nombre debe ser igual o mayor a 3 dígitos" data-placement="right"
+                                onkeypress="return SoloLetras(event);">
                         </div>
-                        <button type="button" class="btn btn-success" id="btnConfirmarPassword">Corroborar</button>
+                        <div class="form-group">
+                            <button type="submit" id="btnUPD-categ" class="btn btn-success" class="close"
+                                data-dismiss="modal">AÑADIR TRABAJADOR&nbsp;&nbsp;<i class="gg-user-add"
+                                    style="display: inline-block;"></i></button>
+                        </div>
                         <p style="color: #f00" id="mensajeError"></p>
                     </form>
                 </div>
@@ -266,8 +313,8 @@
     </nav>
     <main class="mainTrabajadores">
         <h3>REGISTRO DE CATEGORIAS</h3>
-
-        <div class="input-group col-11">
+        <!-- habilitar para el sgte sprint -->
+        <!-- <div class="input-group col-11">
             <div class="input-group-prepend">
                 <span class="input-group-text">
                     <i class="gg-search"></i>
@@ -275,16 +322,20 @@
             </div>
             <input type="text" class="form-control" id="inputTrabajador" style="z-index: 0;"
                 placeholder="Buscar categoria">
-        </div>
+        </div> -->
         <!-- <input type="text" class="form-control" id="inputTrabajador" style="z-index: 0;"> -->
         <div class="form-group grupoBotonesEmpleado">
-            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#crearTrabajadores" value="1"
+            <!-- <a href="#" class="btn btn-success" data-toggle="modal" data-target="#crearTrabajadores" value="1"
                 id="AgregarEmpleadoBtn" onclick="cargosCombo()">
-                AGREGAR EMPLEADO&nbsp;&nbsp;<i class="gg-user-list" style="display: inline-block;"></i>
+                AGREGAR CATEGORIA 123&nbsp;&nbsp;<i class="gg-user-list" style="display: inline-block;"></i>
+            </a>&nbsp; -->
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#crearTrabajadoresNuevo" value="1"
+                id="AgregarListCatbtn">
+                AGREGAR CATEGORIA&nbsp;&nbsp;<i class="gg-user-list" style="display: inline-block;"></i>
             </a>&nbsp;
             <!-- Primer paso -->
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1X">
-                CARGOS&nbsp;&nbsp;<i class="gg-list" style="display: inline-block;top: 3px;"></i></a>
+            <!-- <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal1X">
+                CARGOS&nbsp;&nbsp;<i class="gg-list" style="display: inline-block;top: 3px;"></i></a> -->
         </div>
         <div class="tabla table-responsive">
             <table class="table table-bordered table-hover">
@@ -311,7 +362,7 @@
                     <button type="button" class="close" data-dismiss="modal"
                         style="position: absolute;left: 90%;">&times;</button>
                 </div>
-                <div class="modal-body">
+                <!-- <div class="modal-body">
                     <form action="#" class="formulario2" method="POST" enctype="multipart/form-data" id="formulario2">
                         <input type="hidden" name="txtidEmpleado" id="txtidEmpleado">
                         <div class="form-group col-5">
@@ -326,29 +377,8 @@
                             <input type="text" class="form-control" name="txtcorreoEmpleado"
                                 placeholder="example@gmail.com" id="txtcorreoEmpleado">
                         </div>
-                        <div class="form-group col-5">
-                            <label for="email2">Contraseña:</label>
-                            <div class="input-group" id="show_hide_password">
-                                <input class="form-control" type="password" name="txtpasswordEmpleado"
-                                    placeholder="∗∗∗∗∗∗∗∗∗∗" id="txtpasswordEmpleado" data-toggle="tooltip"
-                                    title="min: 3" data-placement="right">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="show_password" type="button"
-                                        onclick="mostrarPassword()">
-                                        <i class="fa fa-eye-slash icon"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group col-5">
-                            <label for="pwd4">Cargo:</label>
-                            <select id="contenidoCargosList3" class="form-control" name="txtidCargo"
-                                style="text-align: center;"></select>
-                        </div>
-                        <button type="submit" id="btnEnviarE" class="btn btn-primary" class="close"
-                            data-dismiss="modal">ACTUALIZAR EMPLEADO</button>
                     </form>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -367,7 +397,6 @@
     <script async src="../js/mainListCateg.js"></script>
 
     <script async src="../js/validaciones.js"></script>
-    <!-- <script async src="../js/mainCargos.js"></script> -->
     <!-- mis iconos -->
     <script async src="../js/validacionSesion.js"></script>
 </body>
