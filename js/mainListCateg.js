@@ -129,7 +129,7 @@ function empSelect() {
                 var template = '<tr>';
                 template += '<td>' + valor["idCategoria"] + '</td>';
                 template += '<td>' + valor["nombreCategoria"] + '</td>';
-                template += '<td>' + valor["estado"] + '</td>';
+                // template += '<td>' + valor["estado"] + '</td>';
                 template += '<td class="grupoBotones">';
                 template += '<div class="btn-group">';
                 template += '<button class="btn">';

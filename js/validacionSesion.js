@@ -13,9 +13,15 @@ window.addEventListener('load', (e) => {
     }
 });
 
+// Este apartado te muestra: Admin->dash Power BI; Empleado->encuestas
+// function redireccionDefecto(idCargo) {
+//     if (idCargo === 2) window.location.href = "/pages/dashboard.html";
+//     else window.location.href = "/pages/moduloEncuesta.html";
+// }
+// Lo cambio por lo siguiente:
 function redireccionDefecto(idCargo) {
-    if (idCargo === 2) window.location.href = "/pages/dashboard.html";
-    else window.location.href = "/pages/moduloEncuesta.html";
+    if (idCargo === 2) window.location.href = "/pages/pedidos.html";
+    // else window.location.href = "/pages/moduloEncuesta.html";
 }
 
 function cerrarSesion() {

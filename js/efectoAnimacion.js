@@ -21,7 +21,12 @@ function filtroTablaTrabajadores() {
     $(document).ready(function () {
         $("#inputTrabajador").on("keyup", function () {
             var value = $(this).val().toLowerCase();
-            $("#contenido2 tr").filter(function () {
+            // para empleados (del tbody)
+            $("#contenidoEmpleado tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+            // para categorias (del tbody)
+            $("#contenidoCategoria tr").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
