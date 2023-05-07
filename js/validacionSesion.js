@@ -77,6 +77,11 @@ function validarOperaciones(idCargo) {
             '</a>' +
             '</li>' +
             '<li>' +
+            '<a href="carta.html">' +
+            '<i class="fa fa-utensils"></i>Carta' +
+            '</a>' +
+            '</li>' +
+            '<li>' +
             '<a href="categorias.html">' +
             '<i class="fa fa-utensils"></i>Categorias' +
             '</a>' +
