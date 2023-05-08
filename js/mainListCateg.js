@@ -22,7 +22,6 @@ window.addEventListener('load', (e) => {
             if (url === "/pages/categorias.html" || url === "/pages/categorias.html") {
                 console.log("deberia actualizar");
                 empleadoUpdate();
-                // empInsert();
             }
         });
         const boton11 = document.getElementById('btnEnviarINUEVO');
@@ -30,7 +29,7 @@ window.addEventListener('load', (e) => {
             if (url === "/pages/categorias.html" || url === "/pages/categorias.html") {
                 console.log("ESTOY EN btn Enviar INUEVO");
                 // empleadoUpdate();
-                empInsert();
+                crearCateg();
             }
         });
         // boton1.addEventListener('click', (e) => {
@@ -111,7 +110,7 @@ function insertarAdmiEmp() {
             if ($('#accionTrab').val() === 'UPDATE') {
                 empleadoUpdate();
             } else {
-                empInsert();
+                crearCateg();
             }
         }
     });
@@ -133,12 +132,10 @@ function empSelect() {
                 template += '<td class="grupoBotones">';
                 template += '<div class="btn-group">';
                 template += '<button class="btn">';
-                // template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#myModal2" onclick=empGet(' + valor["id Empleado"] + ')><i class="gg-info"></i></a>';
-                // template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#modalCorroborar Password" onclick="modalCorro borarPassword23(' + valor["idCategoria"] + ')"><i class="gg-info"></i></a>';
                 template += '<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#crearTrabajadores" onclick="modalCorroborarPassword(' + valor["idCategoria"] + ')"><i class="gg-info"></i></a>';
                 template += '</button>';
                 template += '<button class="btn">';
-                template += '<a href="#" class="btn btn-danger" onclick="return empEliminar(' + valor["idCategoria"] + ')"><i class="gg-unavailable"></i></a>';
+                template += '<a href="#" class="btn btn-danger" onclick="return deshabilitarCateg(' + valor["idCategoria"] + ')"><i class="gg-unavailable"></i></a>';
                 template += '</button>';
                 template += '</div>';
                 template += '</td>';
@@ -150,7 +147,7 @@ function empSelect() {
     });
 }
 
-function empEliminar(id) {
+function deshabilitarCateg(id) {
     const url = window.location.pathname;
     $.ajax({
         type: "PUT",
@@ -172,16 +169,13 @@ function empEliminar(id) {
     return false;
 }
 
-function empInsert() {
-    var registrosEmplInsert = new FormData();
-    registrosEmplInsert.append("txtnombreCategoriaInsert", $('#txtNombreCategoriaInsert').val());
-    // registrosEmpl.append("txtcorreoEmpleado2", $('#txtcorreoEmpleado').val());
-    // registrosEmpl.append("txtpasswordEmpleado2", $('#txtpasswordEmpleado').val());
-    // registrosEmpl.append("txtidCargo2", $('#contenidoCargosList2').val());
+function crearCateg() {
+    var categCreate = new FormData();
+    categCreate.append("txtnombreCategoriaInsert", $('#txtNombreCategoriaInsert').val());
     $.ajax({
         type: "POST",
         url: domMainListCateg + "categorias/create/",
-        data: registrosEmplInsert,
+        data: categCreate,
         dataType: 'json',
         contentType: false,
         enctype: 'multipart/form-data',
@@ -197,9 +191,6 @@ function empleadoUpdate() {
     var registrosEmpl = new FormData();
     registrosEmpl.append("idCategoria", $('#idCategoria').val());
     registrosEmpl.append("txtnombreCategoria", $('#txtNombreCategoria').val());
-    // registrosEmpl.append("txtnombreCategoria", $('#txtnombreCategoria').val());
-    console.log("EL ID ES:" + registrosEmpl.get("idCategoria"));
-    console.log("EL nombre ES:" + registrosEmpl.get("txtnombreCategoria"));
     $.ajax({
         type: "PUT",
         url: domMainListCateg + "categorias/update/" + registrosEmpl.get("idCategoria") + "/",
