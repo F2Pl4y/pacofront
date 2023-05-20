@@ -56,41 +56,46 @@ function validarOperaciones(idCargo) {
             // '<i class="fa fa-check-square-o"></i>Dashboard' +
             // '</a>' +
             '</li>' +
-            // '<li>' +
-            // '<a href="registroVenta.html">' +
-            // '<i class="fa fa-user-tie"></i>Ventas' +
-            // '</a>' +
-            // '</li>' +
-            // '<li>' +
-            // '<a href="trabajadores.html">' +
-            // '<i class="fa fa-user-tie"></i>Trabajadores' +
-            // '</a>' +
-            // '</li>' +
-            '<li>' +
-            '<a href="pedidos.html">' +
-            '<i class="fa fa-utensils"></i>Pedidos' +
-            '</a>' +
-            '</li>' +
+
+
+
             '<li>' +
             '<a href="platillos.html">' +
             '<i class="fa fa-utensils"></i>Platillos' +
             '</a>' +
             '</li>' +
             '<li>' +
-            '<a href="carta.html">' +
-            '<i class="fa fa-utensils"></i>Carta' +
+            '<a href="pedidos.html">' +
+            '<i class="fa fa-utensils"></i>Pedidos' +
             '</a>' +
             '</li>' +
             '<li>' +
             '<a href="categorias.html">' +
             '<i class="fa fa-utensils"></i>Categorias' +
             '</a>' +
-            '</li>';
-        // '<li>' +
-        // '<a href="cuentasadmin.html">' +
-        // '<i class="fa fa-lock-open"></i>Cuentas Admin' +
-        // '</a>' +
-        // '</li>';
+            '</li>' +
+            '<li>' +
+            '<a href="trabajadores.html">' +
+            '<i class="fa fa-lock-open"></i>Cargos' +
+            '</a>' +
+            '</li>' +
+            '<li>' +
+            '<a href="registroVenta.html">' +
+            '<i class="fa fa-user-tie"></i>Ventas' +
+            '</a>' +
+            '</li>' +
+            '<li>' +
+            '<a href="clientes.html">' +
+            '<i class="fa fa-user-tie"></i>Clientes' +
+            '</a>' +
+            '</li>'
+            // '<li>' +
+            // '<a href="carta.html">' +
+            // '<i class="fa fa-utensils"></i>Carta' +
+            // '</a>' +
+            // '</li>' +
+
+            ;
     } else {
         cadena = '<li>' +
             '<a href="pedidos.html">' +
